@@ -1,0 +1,58 @@
+
+<!-- table watchesmenu search -->
+<table width=100% border=0><tr>
+<td valign=top>
+<!-- results -->
+[#if RESULT#]
+<!-- search results (list) -->
+<form action="?" method="post" name="frmList_watchesmenu" style="padding:0px" class="form">
+<table  align=center class="table table-striped">
+<thead>
+<tr>
+ <th>
+ <a href="?sortby_watchesmenu=TITLE&save_qry=1">TITLE</a><nobr>
+ [#if SORTBY="TITLE"#](+)[#endif#]
+ [#if SORTBY="TITLE DESC"#](-)[#endif#]</nobr>
+ </th>
+ <th>
+ SUBTITLE
+ </th>
+<td>&nbsp;</td>
+</tr>
+</thead>
+<tbody>
+[#begin RESULT#]
+<tr style="height:52px" class="hover_btn2">
+ <td style="vertical-align:middle"
+  >
+  <b>
+   [#TITLE#]
+  </a></b>
+ </td>
+ <td style="vertical-align:middle"
+   >
+  [#if SUBTITLE!=""#]
+   [#SUBTITLE#]
+  [#else#]
+   &nbsp;
+  [#endif#]
+ </td>
+ <td style="vertical-align:middle" width="1%" nowrap>
+  <div style="width:120px">
+  </div>
+ </td>
+</tr>
+[#end RESULT#]
+</tbody>
+</table>
+<input type="hidden" name="data_source" value="<#DATA_SOURCE#>">
+<input type="hidden" name="view_mode" value="multiple_watchesmenu">
+</form>
+<!-- / search results (list) -->
+[#else RESULT#]
+<p>
+<font color="red">No records found.</font>
+</p>
+[#endif RESULT#]
+<!-- / results -->
+</td></tr></table>

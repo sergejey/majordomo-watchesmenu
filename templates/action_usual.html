@@ -1,0 +1,17 @@
+
+ <!-- action usual -->
+ <!-- table watchesmenu search -->
+ [#if VIEW_MODE="search_watchesmenu" || VIEW_MODE=""#]
+  [#inc watchesmenu_search_site.html#]
+ [#endif VIEW_MODE#]
+ <!-- / table watchesmenu search -->
+ <!-- table watchesmenu edit -->
+ [#if VIEW_MODE="edit_watchesmenu"#]
+   [#inc watchesmenu_edit.html#]
+ [#endif VIEW_MODE#]
+ <!-- / table watchesmenu edit -->
+ <!-- table watchesmenu view --> 
+ [#if VIEW_MODE="view_watchesmenu"#]
+   [#inc watchesmenu_view.html#]
+ [#endif VIEW_MODE#]
+ <!-- / table watchesmenu view -->
