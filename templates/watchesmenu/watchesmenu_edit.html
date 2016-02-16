@@ -71,6 +71,16 @@
 
 [#module name="linkedobject" object_field="linked_object" method_field="linked_method"#]
 
+[#if ID!=""#]
+<div class="form-group">
+        <label class="control-label"><#LANG_ACCESS_CONTROL#>:<#LANG_HCB#>access_control<#LANG_HCE#></label>
+        <div class="col-lg-5">
+                <a href="?(panel:{action=security_rules})&object_type=watchesmenu&object_id=[#ID#]&print=1" onClick="return openModalTWindow('security', '<#LANG_ACCESS_CONTROL#>', this.href, 800, 600);" target=_blank><#LANG_SET#></a>
+        </div>
+</div>
+[#endif ID#]
+
+
 <div class="form-group">
         <div class="col-lg-offset-3 col-lg-4">
 [#if ID!=""#]

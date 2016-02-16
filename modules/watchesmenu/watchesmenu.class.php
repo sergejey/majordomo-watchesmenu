@@ -162,15 +162,20 @@ function usual(&$out) {
    echo json_encode($result);exit;
   } else {
    $items=SQLSelect("SELECT ID, TITLE, SUBTITLE FROM watchesmenu ORDER BY PRIORITY DESC, TITLE");
+   $res_items=array();
    $total=count($items);
    for($i=0;$i<$total;$i++) {
+    if (!checkAccess('watchesmenu', $items[$i]['ID'])) {
+     continue;
+    }
     $items[$i]['TITLE']=processTitle($items[$i]['TITLE']);
     if ($items[$i]['SUBTITLE']) {
      $items[$i]['SUBTITLE']=processTitle($items[$i]['SUBTITLE']);
     }
+    $res_items[]=$items[$i];
    }
    header("Content-type:application/json");
-   echo json_encode(array('items'=>$items));exit;
+   echo json_encode(array('items'=>$res_items));exit;
   }
  }
 }
